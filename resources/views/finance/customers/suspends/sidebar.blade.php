@@ -26,7 +26,8 @@
             </a>
         </button>
         @endcan
-
+		@endif
+		
         @if(
         !$customer->suspend->first()->noc_confirmation &&
         !$customer->suspend->first()->sales_confirmation
