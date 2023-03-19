@@ -53,7 +53,7 @@
                                 <div class="form-group">
                                     <label for="password">New Password</label>
                                     <input type="password" name="password" id="password" class="form-control"
-                                        placeholder="Password:" />
+                                        placeholder="Password:" required />
                                 </div>
                             </div>
                         </div>
