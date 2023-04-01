@@ -1379,7 +1379,7 @@ class CustomerController extends Controller
             }
         }
 
-        $customers = $customers->where('cancel_status', '=', '0')
+        $customers = $customers->where('customer_amend_info.cancel_status', '=', '0')
             ->whereNotNull('sales_confirmation')
             ->whereHas('customer', function ($query) {
                 $query->whereNull('deleted_at')
