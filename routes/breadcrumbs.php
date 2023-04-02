@@ -213,8 +213,9 @@ Breadcrumbs::for('categories', function (BreadcrumbTrail $trail) {
 // Home > Requests
 Breadcrumbs::for('requests', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Requests', route('getRequests'));
+    $trail->push('Requests');
     $trail->push('Customers');
+    $trail->push('Terminate Requests', route('getRequests'));
 });
 
 // Home > Requests > Request Status
@@ -226,7 +227,7 @@ Breadcrumbs::for('request', function (BreadcrumbTrail $trail, RequestTerminate $
 // Home > Timeline
 Breadcrumbs::for('timeline', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push("Timeline");
+    $trail->push("TimeLine");
     $trail->push("Customers", route('timeline.index'));
 });
 
@@ -239,8 +240,8 @@ Breadcrumbs::for('timeline.show', function (BreadcrumbTrail $trail, Customer $cu
 // Home > Timeline
 Breadcrumbs::for('contractors', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push("Provincials");
-    $trail->push("Timeline", route('contractorsTimeline.index'));
+    $trail->push('TimeLine');
+    $trail->push('OutSourcing', route('contractorsTimeline.index'));
 });
 
 // Home > Timeline > Customer Name
@@ -311,7 +312,7 @@ Breadcrumbs::for('reports.index', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('outsource.reports.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
     $trail->push("Reports", route('outsource.reports.index'));
-    $trail->push("Provincial");
+    $trail->push('OutSourcing');
 });
 
 // Home > Reports > Total Customers
@@ -594,6 +595,7 @@ Breadcrumbs::for('outsource.charts.cancels', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('province.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
+    $trail->push('Branches');
     $trail->push("Provinces", route('province.index'));
 });
 
@@ -615,6 +617,7 @@ Breadcrumbs::for('province.trashed', function (BreadcrumbTrail $trail) {
 
 Breadcrumbs::for('branch.index', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
+    $trail->push('Branches');
     $trail->push("Branches", route('branch.index'));
 });
 
@@ -780,7 +783,9 @@ Breadcrumbs::for('salesAddCategory', function (BreadcrumbTrail $trail) {
 // Home > Requests
 Breadcrumbs::for('salesRequests', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Requests', route('getRequests'));
+    $trail->push('Requests');
+    $trail->push('Customers');
+    $trail->push('Terminate Requests', route('getRequests'));
 });
 
 // Home > Requests > Request Status
@@ -1131,6 +1136,8 @@ Breadcrumbs::for('noc.amedment.details', function (BreadcrumbTrail $trail, Amend
 // Home > Terminate Requests
 Breadcrumbs::for('noc.terminate.requests', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
+    $trail->push('Request');
+    $trail->push('Customers');
     $trail->push('Terminate Requests', route('NocRequests.index'));
 });
 
@@ -1159,7 +1166,8 @@ Breadcrumbs::for('noc.ter.create', function (BreadcrumbTrail $trail) {
 // Home > Provincial
 Breadcrumbs::for('provincial', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Outsourcing', route('admin.provincial'));
+    $trail->push('OutSourcing', route('admin.provincial'));
+    $trail->push('Customers');
 });
 
 // Home > Provincial > Provincial Name
@@ -1177,12 +1185,14 @@ Breadcrumbs::for('provincial.attachments', function (BreadcrumbTrail $trail, Pro
 // Home > Terminates
 Breadcrumbs::for('manager.pr.terminates', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
+    $trail->push('OutSourcing');
     $trail->push('Terminates', route('admin.terminates'));
 });
 
 // Home > Suspends
 Breadcrumbs::for('manager.pr.suspends', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
+    $trail->push('OutSourcing');
     $trail->push('Suspends', route('admin.pr.suspends'));
 });
 
@@ -1195,6 +1205,7 @@ Breadcrumbs::for('manager.pr.suspend', function (BreadcrumbTrail $trail, Provinc
 // Home > Amendments
 Breadcrumbs::for('manager.pr.amends', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
+    $trail->push('OutSourcing');
     $trail->push('Amendments', route('admin.amends'));
 });
 
@@ -1207,6 +1218,7 @@ Breadcrumbs::for('manager.pr.amend', function (BreadcrumbTrail $trail, Provincia
 // Home > Canceled Amendments
 Breadcrumbs::for('manager.pr.cancels.amend', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
+    $trail->push('OutSourcing');
     $trail->push("Canceled Amendments", route('cancels.prAmendments.mr'));
 });
 
@@ -1219,6 +1231,7 @@ Breadcrumbs::for('manager.pr.cancel.amend', function (BreadcrumbTrail $trail, Pr
 // Home > Cancels
 Breadcrumbs::for('manager.pr.cancels', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
+    $trail->push('OutSourcing');
     $trail->push('Cancels', route('prCancels.index'));
 });
 
@@ -1231,14 +1244,16 @@ Breadcrumbs::for('manager.pr.cancel', function (BreadcrumbTrail $trail, Provinci
 // Home > Trashes
 Breadcrumbs::for('manager.pr.trash', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
+    $trail->push('OutSourcing');
     $trail->push('Trashes', route('admin.pr.tr'));
 });
 
 // Home > Requests
 Breadcrumbs::for('manager.pr.requests', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Requests', route('man.pr.requests'));
-    $trail->push('Provincials');
+    $trail->push('Requests');
+    $trail->push('OutSourcing');
+    $trail->push('Terminate Requests', route('man.pr.requests'));
 });
 
 // Home > Requests > Request
@@ -1252,7 +1267,7 @@ Breadcrumbs::for('manager.pr.request', function (BreadcrumbTrail $trail, PrTermi
 // Home > Provincial
 Breadcrumbs::for('sales.provincial', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincial', route('provincial.index'));
+    $trail->push('OutSourcing', route('provincial.index'));
     $trail->push('Customers');
 });
 
@@ -1278,7 +1293,7 @@ Breadcrumbs::for('sales.provincial.attachments', function (BreadcrumbTrail $trai
 // Home > Terminates
 Breadcrumbs::for('sales.terminates', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincial');
+    $trail->push('OutSourcing');
     $trail->push('Terminates', route('pr.terminates'));
 });
 
@@ -1298,7 +1313,7 @@ Breadcrumbs::for('sales.provincial.recontract', function (BreadcrumbTrail $trail
 // Home > Suspends
 Breadcrumbs::for('sales.suspends', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincial');
+    $trail->push('OutSourcing');
     $trail->push('Suspends', route('pr.suspends'));
 });
 
@@ -1318,7 +1333,7 @@ Breadcrumbs::for('sales.provincial.reactive', function (BreadcrumbTrail $trail, 
 // Home > Amendment
 Breadcrumbs::for('sales.amendments', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincial');
+    $trail->push('OutSourcing');
     $trail->push('Amendments', route('pr.amendments'));
 });
 
@@ -1349,7 +1364,7 @@ Breadcrumbs::for('sales.cancel.amendment', function (BreadcrumbTrail $trail, PrA
 // Home > Cancels
 Breadcrumbs::for('sales.cancels', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincial');
+    $trail->push('OutSourcing');
     $trail->push('Cancels', route('prCancels.index'));
 });
 
@@ -1374,7 +1389,9 @@ Breadcrumbs::for('sales.trashes', function (BreadcrumbTrail $trail) {
 // Home > Requests
 Breadcrumbs::for('sales.pr.requests', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Requests', route('PrRequests.index'));
+    $trail->push('Requests');
+    $trail->push('OutSourcing');
+    $trail->push('Terminate Requests', route('PrRequests.index'));
 });
 
 // Home > Requests > Request
@@ -1388,7 +1405,8 @@ Breadcrumbs::for('sales.pr.request', function (BreadcrumbTrail $trail, PrTermina
 // Home > Provincial
 Breadcrumbs::for('finance.provincial', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincial', route('prc.index'));
+    $trail->push('OutSourcing', route('prc.index'));
+    $trail->push('Customers');
 });
 
 // Home > Provincial > Name
@@ -1406,7 +1424,7 @@ Breadcrumbs::for('finance.pr.attachments', function (BreadcrumbTrail $trail, Pro
 // Home > Terminates
 Breadcrumbs::for('finance.pr.terminates', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincial');
+    $trail->push('OutSourcing');
     $trail->push('Terminates', route('pr.fin.terminates'));
 });
 
@@ -1419,7 +1437,7 @@ Breadcrumbs::for('finance.pr.terminate', function (BreadcrumbTrail $trail, Provi
 // Home > Suspends
 Breadcrumbs::for('finance.pr.suspends', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincial');
+    $trail->push('OutSourcing');
     $trail->push('Suspends', route('pr.fin.suspends'));
 });
 
@@ -1439,14 +1457,14 @@ Breadcrumbs::for('finance.pr.activate', function (BreadcrumbTrail $trail, Provin
 // Home > Amendments
 Breadcrumbs::for('finance.pr.amendments', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincial');
+    $trail->push('OutSourcing');
     $trail->push('Amendments', route('pr.fin.amends'));
 });
 
 // Home > Canceled Amendments
 Breadcrumbs::for('finance.pr.cancels.amendments', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincial');
+    $trail->push('OutSourcing');
     $trail->push('Canceled Amendments', route('finance.cancels.PrAmedments'));
 });
 
@@ -1465,7 +1483,7 @@ Breadcrumbs::for('finance.pr.cancel.amend', function (BreadcrumbTrail $trail, Pr
 // Home > Cancels
 Breadcrumbs::for('finance.pr.cancels', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincial');
+    $trail->push('OutSourcing');
     $trail->push('Cancels', route('prCancels.index'));
 });
 
@@ -1478,7 +1496,7 @@ Breadcrumbs::for('finance.pr.cancel', function (BreadcrumbTrail $trail, Provinci
 // Home > Requests
 Breadcrumbs::for('finance.pr.requests', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincial');
+    $trail->push('OutSourcing');
     $trail->push('Requests', route('pr.fin.requests'));
 });
 
@@ -1486,14 +1504,14 @@ Breadcrumbs::for('finance.pr.requests', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('tr.finance.requests', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
     $trail->push('Requests');
-    $trail->push('Provincials');
+    $trail->push('OutSourcing');
     $trail->push('Terminate Requests', route('trRequests.index'));
 });
 
 // Home > Requests > Request
 Breadcrumbs::for('tr.fiance.request', function (BreadcrumbTrail $trail, PrTerminateRequest $tr) {
     $trail->parent('tr.finance.requests');
-    $trail->push(' Request', route('trRequests.show', $tr));
+    $trail->push('Request', route('trRequests.show', $tr));
 });
 
 // Home > Requests > Edit
@@ -1513,7 +1531,7 @@ Breadcrumbs::for('tr.finance.add', function (BreadcrumbTrail $trail) {
 // Home > Provincial
 Breadcrumbs::for('noc.provincial', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincials');
+    $trail->push('OutSourcing');
     $trail->push('Customers', route('prCustomers.index'));
 });
 
@@ -1538,7 +1556,7 @@ Breadcrumbs::for('noc.provincial.attachments', function (BreadcrumbTrail $trail,
 // Home > Terminates
 Breadcrumbs::for('noc.pr.terminates', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincials');
+    $trail->push('OutSourcing');
     $trail->push('Terminates', route('pr.noc.terminates'));
 });
 
@@ -1551,7 +1569,7 @@ Breadcrumbs::for('noc.pr.terminate', function (BreadcrumbTrail $trail, Provincia
 // Home > Suspends
 Breadcrumbs::for('noc.pr.suspends', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincials');
+    $trail->push('OutSourcing');
     $trail->push('Suspends', route('pr.noc.suspends'));
 });
 
@@ -1570,7 +1588,7 @@ Breadcrumbs::for('noc.pr.activateform', function (BreadcrumbTrail $trail, Provin
 // Home > Amendments
 Breadcrumbs::for('noc.pr.amendments', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincials');
+    $trail->push('OutSourcing');
     $trail->push('Amendments', route('pr.noc.amendments'));
 });
 
@@ -1583,7 +1601,7 @@ Breadcrumbs::for('noc.pr.amend', function (BreadcrumbTrail $trail, Provincial $p
 // Home > cancels Amendments
 Breadcrumbs::for('noc.pr.cancelsamendments', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincials');
+    $trail->push('OutSourcing');
     $trail->push('Canceled Amendments', route('noc.cancels.PrAmedments'));
 });
 
@@ -1596,7 +1614,7 @@ Breadcrumbs::for('noc.pr.cancel.amend', function (BreadcrumbTrail $trail, PrAmen
 // Home > Cancels
 Breadcrumbs::for('noc.pr.cancels', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincials');
+    $trail->push('OutSourcing');
     $trail->push('Cancels', route('prCancels.index'));
 });
 
@@ -1609,14 +1627,16 @@ Breadcrumbs::for('noc.pr.cancel', function (BreadcrumbTrail $trail, Provincial $
 // Home > Requests
 Breadcrumbs::for('noc.pr.requests', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Provincials');
+    $trail->push('OutSourcing');
     $trail->push('Requests', route('pr.noc.requests'));
 });
 
 // Home > Terminate Requests
 Breadcrumbs::for('tr.noc.requests', function (BreadcrumbTrail $trail) {
     $trail->parent('index');
-    $trail->push('Requests', route('prRequests.index'));
+    $trail->push('Requests');
+    $trail->push('OutSourcing');
+    $trail->push('Terminate Requests', route('prRequests.index'));
 });
 
 // Home > Requests > Request

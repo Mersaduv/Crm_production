@@ -97,7 +97,7 @@
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect">
                         <i class="mdi mdi-account-multiple-plus"></i>
-                        <span> Provincial </span>
+                        <span> OutSourcing </span>
                         <span class="float-right"><i class="mdi mdi-chevron-right"></i></span>
                     </a>
                     <ul class="list-unstyled">
@@ -182,7 +182,7 @@
                         @can('timeLine',ProvincialFullyQualifiedNameSpace())
                         <li>
                             <a href="{{ route('contractorsTimeline.index') }}">
-                                Provincials
+                                OutSourcing
                             </a>
                         </li>
                         @endcan
@@ -249,7 +249,7 @@
                         @can('viewAny',ProvincialTerminateFullyQualifiedNameSpace())
                         <li>
                             <a href="{{ route('man.pr.requests') }}" class="waves-effect">
-                                <span>Provincial Terminate </span>
+                                <span>OutSourcing Terminate </span>
                             </a>
                         </li>
                         @endcan
@@ -275,7 +275,7 @@
                         @can('viewAny',ProvincialFullyQualifiedNameSpace())
                         <li>
                             <a href="{{ route('outsource.reports.index') }}" class="waves-effect">
-                                <span>Provincial</span>
+                                <span>OutSourcing</span>
                             </a>
                         </li>
                         @endcan
@@ -362,7 +362,7 @@
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect">
                         <i class="mdi mdi-account-multiple-plus"></i>
-                        <span> Provincials </span>
+                        <span> OutSourcing </span>
                         <span class="float-right"><i class="mdi mdi-chevron-right"></i></span>
                     </a>
                     <ul class="list-unstyled">
@@ -432,7 +432,7 @@
                         @can('timeLine', ProvincialFullyQualifiedNameSpace())
                         <li>
                             <a href="{{ route('contractorsTimeline.index') }}">
-                                Provincials
+                                OutSourcing
                             </a>
                         </li>
                         @endcan
@@ -467,7 +467,7 @@
                         @can('viewAny',ProvincialTerminateFullyQualifiedNameSpace())
                         <li>
                             <a href="{{ route('PrRequests.index') }}" class="waves-effect">
-                                <span>Provincials Terminate</span>
+                                <span>OutSourcing Terminate</span>
                             </a>
                         </li>
                         @endcan
@@ -561,7 +561,7 @@
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect">
                         <i class="mdi mdi-account-multiple-plus"></i>
-                        <span> Provincials </span>
+                        <span> OutSourcing </span>
                         <span class="float-right"><i class="mdi mdi-chevron-right"></i></span>
                     </a>
                     <ul class="list-unstyled">
@@ -644,7 +644,7 @@
                         @can('timeLine', ProvincialFullyQualifiedNameSpace())
                         <li>
                             <a href="{{ route('contractorsTimeline.index') }}">
-                                Provincials
+                                OutSourcing
                             </a>
                         </li>
                         @endcan
@@ -670,7 +670,7 @@
                         @can('viewAny',ProvincialTerminateFullyQualifiedNameSpace())
                         <li>
                             <a href="{{ route('prRequests.index') }}">
-                                Provincials Terminate
+                                OutSourcing Terminate
                             </a>
                         </li>
                         @endcan
@@ -763,7 +763,7 @@
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect">
                         <i class="mdi mdi-account-multiple-plus"></i>
-                        <span> Provincials </span>
+                        <span> OutSourcing </span>
                         <span class="float-right"><i class="mdi mdi-chevron-right"></i></span>
                     </a>
                     <ul class="list-unstyled">
@@ -845,7 +845,7 @@
                         @can('timeLine', ProvincialFullyQualifiedNameSpace())
                         <li>
                             <a href="{{ route('contractorsTimeline.index') }}">
-                                Provincials
+                                OutSourcing
                             </a>
                         </li>
                         @endcan
@@ -871,7 +871,7 @@
                         @can('viewAny',ProvincialTerminateFullyQualifiedNameSpace())
                         <li>
                             <a href="{{ route('trRequests.index') }}">
-                                Provincials Terminate
+                                OutSourcing Terminate
                             </a>
                         </li>
                         @endcan
