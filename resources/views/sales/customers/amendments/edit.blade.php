@@ -142,6 +142,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="id" class="required">ID:</label>
+                                        <input type="hidden" name="cu_id" value="<?=$customer->cu_id?>">
                                         <input type="text" 
                                                name="customer_id"
                                                class="form-control"
