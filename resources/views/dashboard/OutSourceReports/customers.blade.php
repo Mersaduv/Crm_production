@@ -200,7 +200,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <a href="{{ route('provincial.export-active')}}" class="btn btn-primary" target="__blank">
+                    <a href="{{ route('provincial.export-actives')}}" class="btn btn-primary" target="__blank">
                         Export All To CSV
                     </a>
                     <button class="btn btn-primary"
