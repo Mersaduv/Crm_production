@@ -31,6 +31,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::post('/packagesType', 'system\SearchController@packagesType')->name('packagesType');
     Route::post('/commissions/search', 'system\SearchController@commissions')->name('commission.search');
     Route::post('/marketers/search', 'system\SearchController@marketers')->name('marketers.search');
+    Route::post('/providers/search', 'system\SearchController@providers')->name('providers.search');
     Route::post('/checkSellMac', 'system\SearchController@checkSellMac')->name('checkSellMac');
     Route::post('/checkLeasedMac', 'system\SearchController@checkLeasedMac')->name('checkLeasedMac');
     Route::post('/getCustomer', 'system\SearchController@getCustomer')->name('getCustomer');
@@ -357,6 +358,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
         Route::get('/marketers/trashed', 'Admin\marketerController@trashed')->name('marketers.trashed');
         Route::put('/marketers/restore/{id}', 'Admin\marketerController@restore')->name('marketers.restore');
         Route::resource('/marketers', 'Admin\marketerController');
+
+        // Providder Routes
+        Route::get('/providers/trashed', 'Admin\ProviderController@trashed')->name('providers.trashed');
+        Route::put('/providers/restore/{id}', 'Admin\ProviderController@restore')->name('providers.restore');
+        Route::resource('/providers', 'Admin\ProviderController');
 
         Route::get('/cancels/amendments/mr', 'Admin\AdminController@cancelsAmendments')->name('cancels.amendments.mr');
         Route::get('/cancels/amendments/mr/{id}', 'Admin\AdminController@cancelAmendment')->name('cancel.amendment.mr');

@@ -41,9 +41,9 @@
             <th>Package</th>
             <td>
                 @if($customer->package)
-                    {{ $customer->package->name }}
+                {{ $customer->package->name }}
                 @else
-                    NA
+                NA
                 @endif
             </td>
         </tr>
@@ -58,9 +58,9 @@
             <th>Additional Charge:</th>
             <td>
                 @if($customer->additional_charge)
-                    {{ $customer->additional_charge }}
-                @else 
-                    NA
+                {{ $customer->additional_charge }}
+                @else
+                NA
                 @endif
             </td>
         </tr>
@@ -68,14 +68,14 @@
             <th>Additional Charge Price:</th>
             <td>
                 @if($customer->additional_charge_price)
-                    <span>
-                        {{ $customer->additional_charge_price }}
-                    </span>
-                    <span>
-                        {{ $customer->additional_currency }}
-                    </span>
-                @else 
-                    NA
+                <span>
+                    {{ $customer->additional_charge_price }}
+                </span>
+                <span>
+                    {{ $customer->additional_currency }}
+                </span>
+                @else
+                NA
                 @endif
             </td>
         </tr>
@@ -83,9 +83,9 @@
             <th>Reseller Name</th>
             <td>
                 @if($customer->commission)
-                    {{ $customer->commission->name }}
+                {{ $customer->commission->name }}
                 @else
-                    NA
+                NA
                 @endif
             </td>
         </tr>
@@ -112,15 +112,19 @@
         </tr>
         <tr>
             <th>Provider</th>
-            <td>{{ $customer->provider }}</td>
+            @if ($customer->provider)
+            <td>{{ $customer->provider->name }}</td>
+            @else
+            <td>NA</td>
+            @endif
         </tr>
         <tr>
             <th>Public IP</th>
             <td>
                 @if($customer->public_ip)
-                    {{ $customer->public_ip }}
+                {{ $customer->public_ip }}
                 @else
-                    NA
+                NA
                 @endif
             </td>
         </tr>
@@ -128,10 +132,10 @@
             <th>IP Price</th>
             <td>
                 @if($customer->ip_price)
-                    <span>{{ $customer->ip_price }}</span>
-                    <span>{{ $customer->ip_price_currency }}</span>
+                <span>{{ $customer->ip_price }}</span>
+                <span>{{ $customer->ip_price_currency }}</span>
                 @else
-                    NA
+                NA
                 @endif
             </td>
         </tr>
@@ -139,9 +143,9 @@
             <th>Comment</th>
             <td>
                 @if($customer->comment)
-                    {{ $customer->comment }}
+                {{ $customer->comment }}
                 @else
-                    NA
+                NA
                 @endif
             </td>
         </tr>
@@ -161,10 +165,10 @@
 </table> <!-- /table -->
 @else
 <table class="table">
-	<thead>
-		<tr>
-			<th>No Details Exists here.</th>
-		</tr>
-	</thead>
+    <thead>
+        <tr>
+            <th>No Details Exists here.</th>
+        </tr>
+    </thead>
 </table>
 @endif

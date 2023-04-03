@@ -14,6 +14,7 @@ use App\Models\Package;
 use App\Models\Commission;
 use App\Models\Marketer;
 use App\Models\Permission;
+use App\Models\Provider;
 use App\Models\Sale;
 use App\Models\Provincial;
 use App\Models\RequestTerminate;
@@ -298,6 +299,31 @@ Breadcrumbs::for('marketers.add', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('marketers.trashed', function (BreadcrumbTrail $trail) {
     $trail->parent('marketers');
     $trail->push("Trashed", route('marketers.trashed'));
+});
+
+
+// Home > Providers
+Breadcrumbs::for('providers', function (BreadcrumbTrail $trail) {
+    $trail->parent('index');
+    $trail->push("Providers", route('providers.index'));
+});
+
+// Home > Providers > name
+Breadcrumbs::for('providers.edit', function (BreadcrumbTrail $trail, Provider $provider) {
+    $trail->parent('providers');
+    $trail->push($provider->name, route('providers.edit', $provider));
+});
+
+// Home > Providers > Add New
+Breadcrumbs::for('providers.add', function (BreadcrumbTrail $trail) {
+    $trail->parent('providers');
+    $trail->push("Add New", route('providers.create'));
+});
+
+// Home > Providers > Trashed
+Breadcrumbs::for('providers.trashed', function (BreadcrumbTrail $trail) {
+    $trail->parent('providers');
+    $trail->push("Trashed", route('providers.trashed'));
 });
 
 

@@ -115,4 +115,11 @@ class Provincial extends Model
     {
         return $this->belongsTo(Marketer::class, 'marketer_id', 'id');
     }
+
+
+    // Relation to Provider
+    public function provider()
+    {
+        return $this->belongsTo(Provider::class, 'provider_id', 'id');
+    }
 }

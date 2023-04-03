@@ -149,6 +149,15 @@
                 </li>
                 @endcan
 
+                @can('viewAny', ProviderFullyQualifiedNameSpace())
+                <li>
+                    <a href="{{ route('providers.index') }}" class="waves-effect">
+                        <i class="mdi mdi-access-point"></i>
+                        <span> Providers </span>
+                    </a>
+                </li>
+                @endcan
+
                 @can('viewAny', MarketerFullyQualifiedNameSpace())
                 <li>
                     <a href="{{ route('marketers.index') }}" class="waves-effect">

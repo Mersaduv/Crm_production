@@ -130,10 +130,10 @@ class ProvincialController extends Controller
             'package_id' => 'required',
             'package_price' => 'required',
             'service' => 'required',
-            'provider' => 'required',
             'installation_date' => 'required',
             // 'commission_id' => 'required',
             // 'marketer_id' => 'required',
+            'provider_id' => 'required',
             'commission_percent' => 'required',
         ], [
             'customer_id.required' => 'Customer ID is required',
@@ -151,9 +151,9 @@ class ProvincialController extends Controller
             'service.required' => 'Service Type is required',
             'province.required' => 'Province is required',
             'customerProvince.required' => 'Customer Province is required',
-            'provider.required' => 'Provider is required',
             // 'commission_id.required' => 'Reseller is required',
             // 'marketer_id.required' => 'Reseller is required',
+            'provider_id.required' => 'Provider is required',
             'commission_percent.required' => 'Reseller Percent is required',
             'installation_date.required' => 'Installation Date is required',
         ]);
@@ -176,7 +176,6 @@ class ProvincialController extends Controller
         $customer->package_price = $request->package_price ? $request->package_price : '0';
         $customer->package_price_currency = $request->package_price_currency;
         $customer->service = $request->service;
-        $customer->provider = $request->provider;
         $customer->installation_date = $request->installation_date;
         $customer->installation_cost = $request->installation_cost ? $request->installation_cost : '0';
         $customer->Installation_cost_currency = $request->Installation_cost_currency;
@@ -186,6 +185,7 @@ class ProvincialController extends Controller
         $customer->comment = $request->comment;
         $customer->commission_id = $request->commission_id;
         $customer->marketer_id = $request->marketer_id;
+        $customer->provider_id = $request->provider_id;
         $customer->commission_percent = $request->commission_percent ? $request->commission_percent : '0';
         $customer->commission_percent_currency = $request->commission_percent_currency;
         $customer->additional_charge = $request->additional_charge;
@@ -260,10 +260,10 @@ class ProvincialController extends Controller
             'package_id' => 'required',
             'package_price' => 'required',
             'service' => 'required',
-            'provider' => 'required',
             'installation_date' => 'required',
             // 'commission_id' => 'required',
             // 'marketer_id' => 'required',
+            'provider_id' => 'required',
             'commission_percent' => 'required',
         ], [
             'customer_id.required' => 'Customer ID is required',
@@ -281,9 +281,9 @@ class ProvincialController extends Controller
             'service.required' => 'Service Type is required',
             'province.required' => 'Province is required',
             'customerProvince.required' => 'Customer Province is required',
-            'provider.required' => 'Provider is required',
             // 'commission_id.required' => 'Reseller is required',
             // 'marketer_id.required' => 'Reseller is required',
+            'provider_id.required' => 'Provider is required',
             'commission_percent.required' => 'Reseller Percent is required',
             'installation_date.required' => 'Installation Date is required',
         ]);
@@ -304,7 +304,6 @@ class ProvincialController extends Controller
         $provincial->package_price = $request->package_price ? $request->package_price : '0';
         $provincial->package_price_currency = $request->package_price_currency;
         $provincial->service = $request->service;
-        $provincial->provider = $request->provider;
         $provincial->installation_date = $request->installation_date;
         $provincial->installation_cost = $request->installation_cost ? $request->installation_cost : '0';
         $provincial->Installation_cost_currency = $request->Installation_cost_currency;
@@ -314,6 +313,7 @@ class ProvincialController extends Controller
         $provincial->comment = $request->comment;
         $provincial->commission_id = $request->commission_id;
         $provincial->marketer_id = $request->marketer_id;
+        $provincial->provider_id = $request->provider_id;
         $provincial->commission_percent = $request->commission_percent ? $request->commission_percent : '0';
         $provincial->commission_percent_currency = $request->commission_percent_currency;
         $provincial->additional_charge = $request->additional_charge;

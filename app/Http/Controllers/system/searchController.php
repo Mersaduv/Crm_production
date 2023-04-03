@@ -37,6 +37,7 @@ use App\Events\prContractionEvent;
 use App\Events\prActivatingEvent;
 use App\Models\Branch;
 use App\Models\Marketer;
+use App\Models\Provider;
 use App\Models\Province;
 use \Exception;
 use DB;
@@ -135,6 +136,28 @@ class SearchController extends Controller
             foreach ($marketers as $marketer) {
                 $output .= '<li class="list-group-item"
                                 id="' . $marketer->id . '">' . $marketer->name . '</li>';
+            }
+        } else {
+            $output .= '<li class="list-group-item"
+                            style="pointer-events:none">' . 'No results' . '</li>';
+        }
+
+        return $output;
+    }
+
+
+
+    // Return the Providers
+    public function providers(Request $request)
+    {
+        $output = "";
+        $providers = Provider::where('name', 'like', '%' . $request->search . '%')->get();
+
+        if ($providers->isNotEmpty()) {
+
+            foreach ($providers as $provider) {
+                $output .= '<li class="list-group-item"
+                                id="' . $provider->id . '">' . $provider->name . '</li>';
             }
         } else {
             $output .= '<li class="list-group-item"

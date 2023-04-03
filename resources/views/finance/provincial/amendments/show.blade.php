@@ -117,7 +117,11 @@
                                             </tr>
                                             <tr>
                                                 <th>Provider</th>
-                                                <td>{{ $customer->provider }}</td>
+                                                @if ($customer->provider)
+                                                <td>{{ $customer->provider->name }}</td>
+                                                @else
+                                                <td>NA</td>
+                                                @endif
                                             </tr>
                                             <tr>
                                                 <th>Public IP</th>

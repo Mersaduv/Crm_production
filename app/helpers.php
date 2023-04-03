@@ -197,6 +197,11 @@ function ProvincialPaymentFullyQualifiedNameSpace()
     return \App\Models\PrPayment::class;
 }
 
+function ProviderFullyQualifiedNameSpace()
+{
+    return \App\Models\Provider::class;
+}
+
 function hasAnyReadPermission($sections = [])
 {
     $has = false;

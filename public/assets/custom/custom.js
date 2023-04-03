@@ -629,6 +629,50 @@ jQuery(document).ready(function () {
 
         jQuery("#marketers_list").empty();
     });
+
+    // Provider Live Search
+    jQuery("#provider")
+        .off()
+        .on("keyup", function (e) {
+            e.preventDefault();
+            var data = jQuery(this).val();
+            token = document.getElementsByName("_token")[0].content;
+
+            jQuery.ajax({
+                url: ROOT_DIR + "/providers/search",
+                method: "post",
+                data: {
+                    _token: token,
+                    search: data,
+                },
+                beforeSend: function () {
+                    jQuery("button[type=submit]").prop("disabled", true);
+                },
+                success: function (response) {
+                    jQuery("#providers_list").empty().html(response);
+                },
+                complete: function () {
+                    if (data.length == 0) {
+                        jQuery("#providers_list").empty();
+                        document.getElementById("provider_id").value = "";
+                        jQuery("button[type=submit]").prop("disabled", false);
+                    }
+                },
+            });
+        });
+
+    $("#providers_list").on("click", ".list-group-item", function () {
+        var val = $(this).text();
+        var id = $(this).attr("id");
+
+        if (id) jQuery("button[type=submit]").prop("disabled", false);
+
+        document.getElementById("provider").value = val;
+        document.getElementById("provider_id").value = id;
+
+        jQuery("#providers_list").empty();
+    });
+
     // mac address validation
 
     $("#reciever_mac")
