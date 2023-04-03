@@ -1433,7 +1433,7 @@ class CustomerController extends Controller
         try {
             DB::beginTransaction();
 
-            $amed->cu_id = $id;
+            $amed->cu_id = $request->cu_id;
             $amed->customer_id = $request->customer_id;
             $amed->full_name   = $request->full_name;
             $amed->poc         = $request->poc;
