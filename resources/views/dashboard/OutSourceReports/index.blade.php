@@ -29,7 +29,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h2>Provincial Reports:</h2>
+                    <h2>OutSourcing Reports</h2>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -169,7 +169,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h2>Provincial Charts:</h2>
+                    <h2>OutSourcing Charts</h2>
                 </div>
                 <div class="card-body">
                     <div class="row">
