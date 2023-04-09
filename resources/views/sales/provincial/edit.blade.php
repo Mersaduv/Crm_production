@@ -352,8 +352,12 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="provider" class="required">Provider</label>
-                                    <input type="text" name="provider" id="provider" class="form-control"
-                                        autocomplete="off" required="required" value="{{ $customer->provider }}" />
+                                    <input type="text" name="provider" id="provider" autocomplete="off"
+                                        class="form-control" placeholder="Provider Name:"
+                                        value="{{ $customer->provider ? $customer->provider->name : '' }}" />
+                                    <ul id="providers_list"></ul>
+                                    <input type="hidden" name="provider_id" id="provider_id"
+                                        value="{{ $customer->provider ? $customer->provider->id : '' }}" />
                                 </div>
                             </div> <!-- /col -->
 
@@ -476,24 +480,31 @@
 
     #marketers_list,
     #commission_list,
-    #packages_list {
+    #packages_list,
+    #providers_list {
         padding: 0;
+        position: absolute;
+        z-index: 100;
     }
 
     #commission_list,
-    #packages_list {
+    #packages_list,
+    #providers_list,
+    #marketers_list {
         width: 95%
     }
 
     #marketers_list li,
     #commission_list li,
-    #packages_list li {
+    #packages_list li,
+    #providers_list li {
         background-color: #e6eff7
     }
 
     #marketers_list li:hover,
     #commission_list li:hover,
-    #packages_list li:hover {
+    #packages_list li:hover,
+    #providers_list li:hover {
         cursor: pointer;
     }
 </style>
