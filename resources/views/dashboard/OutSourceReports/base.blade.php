@@ -205,6 +205,7 @@
                                 <th>Installation Date</th>
                                 <th>Province</th>
                                 <th>Branch</th>
+                                <th>Provider</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -223,6 +224,11 @@
                                 <th>{{ $customer->installation_date }}</th>
                                 <th>{{province($customer->province)}}</th>
                                 <th>{{ $customer->branch->name }} - {{ $customer->branch->address }}</th>
+                                <th>{{
+                                    $customer->provider ?
+                                    $customer->provider->name : 'NA'
+                                    }}
+                                </th>
                             </tr>
                             <?php $index ++ ?>
                             @endforeach

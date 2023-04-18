@@ -217,6 +217,7 @@
                                 <th>Full Name</th>
                                 <th>Package</th>
                                 <th>Province</th>
+                                <th>Provider</th>
                                 <th>Installation Date</th>
                                 <th>Activation Date</th>
                             </tr>
@@ -233,6 +234,7 @@
                                 <th>{{ $customer->full_name }}</th>
                                 <th>{{ $customer->package ? $customer->package->name : 'NA' }}</th>
                                 <th>{{ province($customer->province) }}</th>
+                                <th>{{ $customer->provider ? $customer->provider->name : 'NA' }}</th>
                                 <th>{{ $customer->installation_date }}</th>
                                 <th>
                                     {{ $customer->PrNocInfo ? $customer->PrNocInfo->activation_date : 'NA' }}

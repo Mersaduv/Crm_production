@@ -219,6 +219,7 @@
                                 <th>Full Name</th>
                                 <th>Package</th>
                                 <th>Province</th>
+                                <th>Provider</th>
                                 <th>Installation Date</th>
                                 <th>Status</th>
                                 <th>Status Date</th>
@@ -238,6 +239,11 @@
                                     {{ $customer->package ? $customer->package->name : 'NA' }}
                                 </th>
                                 <th>{{ province($customer->province) }}</th>
+                                <th>{{
+                                    $customer->provider ?
+                                    $customer->provider->name : 'NA'
+                                    }}
+                                </th>
                                 <th>{{ $customer->installation_date }}</th>
                                 <th>{{ prStatus($customer->customer_id)['status'] }}</th>
                                 <th>{{ prStatus($customer->customer_id)['date'] }}</th>

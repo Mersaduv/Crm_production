@@ -204,6 +204,7 @@
                                 <th>Package</th>
                                 <th>Installation Date</th>
                                 <th>Province</th>
+                                <th>Provider</th>
                                 <th>Reseller</th>
                             </tr>
                         </thead>
@@ -222,7 +223,12 @@
                                 </th>
                                 <th>{{ $customer->installation_date }}</th>
                                 <th>{{province($customer->province)}}</th>
-                                <th>{{ $customer->commission->name ? $customer->commission->name : 'NA' }}</th>
+                                <th>{{
+                                    $customer->provider ?
+                                    $customer->provider->name : 'NA'
+                                    }}
+                                </th>
+                                <th>{{ $customer->commission ? $customer->commission->name : 'NA' }}</th>
                             </tr>
                             <?php $index ++ ?>
                             @endforeach

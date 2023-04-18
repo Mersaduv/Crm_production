@@ -39,7 +39,7 @@ class OutSourceReportsController extends Controller
     // return the installation page reports
     public function installation()
     {
-        $customers = Provincial::latest('pr_customers.created_at');
+        $customers = Provincial::with('provider')->latest('pr_customers.created_at');
         $isFilter = 'false';
 
         if (request('id')) {
@@ -245,7 +245,7 @@ class OutSourceReportsController extends Controller
     // return the terminates page reports
     public function terminates()
     {
-        $customers = PrTerminate::latest();
+        $customers = PrTerminate::with('provincial.provider')->latest();
         $isFilter = 'false';
 
         if (request('id')) {
@@ -313,7 +313,7 @@ class OutSourceReportsController extends Controller
     // return the recontract page reports
     public function recontract()
     {
-        $customers = PrRecontract::latest();
+        $customers = PrRecontract::with('provincial.provider')->latest();
         $isFilter = 'false';
 
         if (request('id')) {
@@ -377,7 +377,7 @@ class OutSourceReportsController extends Controller
     // return the suspends page reports
     public function suspends()
     {
-        $customers = PrSuspend::latest();
+        $customers = PrSuspend::with('provincial.provider')->latest();
         $isFilter = 'false';
 
         if (request('name')) {
@@ -446,7 +446,7 @@ class OutSourceReportsController extends Controller
     // return the reactivate page reports
     public function reactivate()
     {
-        $customers = PrReactivate::latest();
+        $customers = PrReactivate::with('provincial.provider')->latest();
         $isFilter = 'false';
 
         if (request('name')) {
@@ -511,7 +511,7 @@ class OutSourceReportsController extends Controller
     // return the amendments page reports
     public function amendments()
     {
-        $customers = PrAmend::latest();
+        $customers = PrAmend::with('provincial.provider')->latest();
         $isFilter = 'false';
 
         if (request('name')) {
@@ -580,7 +580,7 @@ class OutSourceReportsController extends Controller
     // return the cancel amendments
     public function cancelAmendments()
     {
-        $customers = PrCancelAmend::latest();
+        $customers = PrCancelAmend::with('provincial.provider')->latest();
         $isFilter = 'false';
 
         if (request('name')) {
@@ -648,7 +648,7 @@ class OutSourceReportsController extends Controller
     // return the cancels page reports
     public function cancels()
     {
-        $customers = PrCancel::latest();
+        $customers = PrCancel::with('provincial.provider')->latest();
         $isFilter = 'false';
 
         if (request('id')) {
@@ -715,7 +715,7 @@ class OutSourceReportsController extends Controller
     // reuturn the base reports of provincial customers
     public function base()
     {
-        $customers = Provincial::latest('pr_customers.created_at');
+        $customers = Provincial::with('provider')->latest('pr_customers.created_at');
         $isFilter = 'false';
 
         if (request('id')) {
@@ -769,7 +769,7 @@ class OutSourceReportsController extends Controller
     // reuturn the package reports of provincial customers
     public function package()
     {
-        $customers = Provincial::latest('pr_customers.created_at');
+        $customers = Provincial::with('provider')->latest('pr_customers.created_at');
         $isFilter = 'false';
 
         if (request('id')) {
@@ -848,7 +848,7 @@ class OutSourceReportsController extends Controller
     // reuturn the resellers reports of provincial customers
     public function resellers()
     {
-        $customers = Provincial::latest('pr_customers.created_at');
+        $customers = Provincial::with('provider')->latest('pr_customers.created_at');
         $isFilter = 'false';
 
         if (request('id')) {

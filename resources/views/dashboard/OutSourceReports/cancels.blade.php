@@ -221,6 +221,7 @@
                                 <th>Full Name</th>
                                 <th>Package</th>
                                 <th>Province</th>
+                                <th>Provider</th>
                                 <th>Installation Date</th>
                                 <th>Cancel Date</th>
                             </tr>
@@ -237,6 +238,11 @@
                                 <th>{{ $customer->full_name }}</th>
                                 <th>{{ $customer->package ? $customer->package->name : 'NA' }}</th>
                                 <th>{{ province($customer->province) }}</th>
+                                <th>{{
+                                    $customer->provincial->provider ?
+                                    $customer->provincial->provider->name : 'NA'
+                                    }}
+                                </th>
                                 <th>{{ $customer->provincial->installation_date }}</th>
                                 <th>{{ $customer->cancel_date }}</th>
                             </tr>
