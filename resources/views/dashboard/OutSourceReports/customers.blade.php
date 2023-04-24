@@ -220,6 +220,7 @@
                                 <th>Provider</th>
                                 <th>Installation Date</th>
                                 <th>Activation Date</th>
+                                <th>Details</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -239,6 +240,27 @@
                                 <th>
                                     {{ $customer->PrNocInfo ? $customer->PrNocInfo->activation_date : 'NA' }}
                                 </th>
+                                @canany(['view'], ProvincialFullyQualifiedNameSpace())
+                                <td>
+                                    <div class="action_dropdown_area">
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-primary dropdown-toggle"
+                                                data-toggle="dropdown">
+                                                Actions
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                @can('view', ProvincialFullyQualifiedNameSpace())
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.pr.show', $customer->id) }}">
+                                                    <i class="fas fa-info info"></i>
+                                                    Details
+                                                </a>
+                                                @endcan
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                @endcanany
                             </tr>
                             <?php $index ++ ?>
                             @endforeach

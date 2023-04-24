@@ -223,6 +223,7 @@
                                 <th>Provider</th>
                                 <th>Termination Date</th>
                                 <th>Recontraction Date</th>
+                                <th>Details</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -244,6 +245,27 @@
                                 </th>
                                 <th>{{ $customer->terminate->terminate_date }}</th>
                                 <th>{{ $customer->recontract_date }}</th>
+                                @canany(['view'], ProvincialFullyQualifiedNameSpace())
+                                <td>
+                                    <div class="action_dropdown_area">
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-primary dropdown-toggle"
+                                                data-toggle="dropdown">
+                                                Actions
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                @can('view', ProvincialFullyQualifiedNameSpace())
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.pr.show', $customer->provincial->id) }}">
+                                                    <i class="fas fa-info info"></i>
+                                                    Details
+                                                </a>
+                                                @endcan
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                @endcanany
                             </tr>
                             <?php $index ++ ?>
                             @endforeach

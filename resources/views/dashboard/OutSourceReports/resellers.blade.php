@@ -206,6 +206,7 @@
                                 <th>Province</th>
                                 <th>Provider</th>
                                 <th>Reseller</th>
+                                <th>Details</th>
                             </tr>
                         </thead>
                         <tbody>
