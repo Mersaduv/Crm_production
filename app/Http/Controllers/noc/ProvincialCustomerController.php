@@ -739,7 +739,7 @@ class ProvincialCustomerController extends Controller
     public function amend($id)
     {
         $this->authorize('view', PrSuspend::class);
-        $customer = PrAmend::find($id);
+        $customer = PrAmend::with(['provincial.provider', 'provincial.marketer'])->find($id);
         return view('noc.provincial.amendments.show', compact('customer'));
     }
 
