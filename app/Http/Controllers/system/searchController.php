@@ -1099,14 +1099,14 @@ class SearchController extends Controller
 
         try {
 
-            $amend = PrAmend::findorfail($id);
+            $amend = PrAmend::with(['provincial.provider', 'provincial.marketer'])->findorfail($id);
             $pr_cu_id = $amend->pr_cu_id;
             $amend->cancel_status = '1';
 
             $cancel = new PrCancelAmend();
             $cancel->customer_id = $amend->customer_id;
             $cancel->commission_id = $amend->commission_id;
-            $cancel->marketer_id = $amend->marketer_id;
+            $cancel->marketer_id = $amend->provincial->marketer->id;
             $cancel->commission_percent = $amend->commission_percent;
             $cancel->commission_percent_currency = $amend->commission_percent_currency;
             $cancel->amend_id = $id;
@@ -1123,7 +1123,7 @@ class SearchController extends Controller
             $cancel->ip_price = $amend->ip_price;
             $cancel->ip_price_currency = $amend->ip_price_currency;
             $cancel->service = $amend->service;
-            $cancel->provider = $amend->provider;
+            $cancel->provider_id = $amend->provincial->provider->id;
             $cancel->phone1 = $amend->phone1;
             $cancel->phone2 = $amend->phone2;
             $cancel->additional_charge = $amend->additional_charge;
