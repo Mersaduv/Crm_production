@@ -1274,7 +1274,7 @@ class SearchController extends Controller
     // confirm the amendment of customer
     public function prAmendConfirm(Request $request)
     {
-        $amend = PrAmend::findorfail($request->id);
+        $amend = PrAmend::with(['provincial.provider', 'provincial.marketer'])->findorfail($request->id);
         $id = $amend->pr_cu_id;
 
         if (Auth::user()->role == 'sales') {
@@ -1290,7 +1290,7 @@ class SearchController extends Controller
             $customer->customer_id = $amend->customer_id;
             $customer->user_id = $amend->user_id;
             $customer->commission_id = $amend->commission_id;
-            $customer->marketer_id = $amend->marketer_id;
+            $customer->marketer_id = $amend->provincial->marketer->id;
             $customer->commission_percent = $amend->commission_percent;
             $customer->commission_percent_currency = $amend->commission_percent_currency;
             $customer->full_name = $amend->full_name;
@@ -1309,7 +1309,7 @@ class SearchController extends Controller
             $customer->ip_price = $amend->ip_price;
             $customer->ip_price_currency = $amend->ip_price_currency;
             $customer->service = $amend->service;
-            $customer->provider = $amend->provider;
+            $customer->provider_id = $amend->provincial->provider->id;
             $customer->phone1 = $amend->phone1;
             $customer->phone2 = $amend->phone2;
             $customer->additional_charge = $amend->additional_charge;
