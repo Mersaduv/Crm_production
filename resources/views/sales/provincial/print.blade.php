@@ -180,7 +180,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="page-title-box">
-                                <img src="{{ asset('/public/assets/images/header.jpg') }}">
+                                <img src="{{ asset('/public/assets/images/contract-etl-logo.jpg') }}">
                             </div>
                             <div class="page-header-box">
                                 <h3>
