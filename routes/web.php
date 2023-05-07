@@ -53,6 +53,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::post('/cancel/confirm', 'system\SearchController@confirmCancel')->name('cancel.confirm');
     Route::post('/suspend/confirm', 'system\SearchController@confirmSuspend')->name('suspend.confirm');
     Route::post('/terminate/confirm', 'system\SearchController@confirmTerminate')->name('terminate.confirm');
+    Route::post('/terminate/cancel', 'system\SearchController@cancelTerminate')->name('terminate.cancel');
     Route::post('/amend/confirm', 'system\SearchController@confirmAmend')->name('amend.confirm');
     Route::post('/cancel/amend.confirm', 'system\SearchController@confirmCancelAmend')->name('cancel.amend.confirm');
     Route::post('/prCancel/confirm', 'system\SearchController@prCancelConfirm')->name('prCancel.confirm');
@@ -80,6 +81,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/check/branch', 'system\SearchController@branches');
     Route::post('/reactivate/confirm', 'system\SearchController@confirmReactivate')->name('confirm.reactivate');
     Route::post('/recontract/confirm', 'system\SearchController@confirmRecontract')->name('confirm.recontract');
+    Route::post('/recontract/cancel', 'system\SearchController@cancelRecontract')->name('cancel.recontract');
     Route::post('/prreactivate/confirm', 'system\SearchController@confirmPrReactivate')->name('confirm.PrReactivate');
     Route::get('/filter-prrecontract', 'system\SearchController@filterPrRecontract');
     Route::post('/prrecontract-confirm', 'system\SearchController@ConfirmPrRecontract')->name('confirm.prrecontract');

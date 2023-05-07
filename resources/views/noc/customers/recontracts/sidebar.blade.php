@@ -11,11 +11,14 @@
             Confirmed
         </button>
         @else
-        <button class="btn btn-primary w-100 confirm_btn" type="button">
+        <button class="btn btn-primary w-100 confirm_btn mb-1" type="button">
             Confirm Recontraction
         </button>
         @endif
 
+        <button class="btn btn-danger w-100 cancel_btn" type="button">
+            Cancel Recontraction
+        </button>
     </div> <!-- /card-body -->
 </div> <!-- /card -->
 

@@ -920,7 +920,7 @@ class CustomerController extends Controller
 
             // check if the terminate is already in none confirmed terminate
             $terminate = Terminate::where('cu_id', $id)->first();
-            if ($terminate && ($terminate->noc_confirmation == "" || $terminate->finance_confirmation == "" || $terminate->sales_confirmation == "")) {
+            if ($terminate && ($terminate->noc_confirmation == "" || $terminate->finance_confirmation == "" || $terminate->sales_confirmation == "") && $terminate->status != 'cancel') {
                 DB::rollback();
                 return redirect()->back()->with('error', 'Customer has already a pending terminate');
             }

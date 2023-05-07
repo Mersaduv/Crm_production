@@ -243,8 +243,10 @@ function suspends($role)
 function terminates($role)
 {
 
-    $terminates = Terminate::whereNull($role)->count();
-    $recontracts = Recontract::whereNull($role)->count();
+    $terminates = Terminate::whereNull($role)
+        ->whereNull('noc_cancel')
+        ->count();
+    $recontracts = Recontract::whereNull($role)->whereNull('noc_cancel')->count();
     $total = $terminates + $recontracts;
 
     return [

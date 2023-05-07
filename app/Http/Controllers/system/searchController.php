@@ -793,6 +793,46 @@ class SearchController extends Controller
         return response('success', 200);
     }
 
+    // confirm the recontraction
+    public function cancelRecontract(Request $request)
+    {
+        try {
+
+            $recontract = Recontract::findorfail($request->id);
+            $terminate = Terminate::where('id', $recontract->terminate_id)->first();
+            if (Auth::user()->role == 'finance') {
+
+                $recontract->finance_cancel = date('Y/m/d H:i:s');
+            }
+
+            if (
+                Auth::user()->role == 'sales'
+            ) {
+
+                $recontract->sales_cancel = date('Y/m/d H:i:s');
+            }
+
+            if (
+                Auth::user()->role == 'noc'
+            ) {
+
+
+                $recontract->noc_cancel = date('Y/m/d H:i:s');
+                $recontract->status = 'cancel';
+                $terminate->status = 'terminate';
+
+                $terminate->save();
+            }
+
+            $recontract->save();
+        } catch (Exception $e) {
+            DB::rollback();
+            return response('failed');
+        }
+
+        return response('success', 200);
+    }
+
     // confirm the recontraction of the provincial customer
     public function ConfirmPrRecontract(Request $request)
     {
@@ -891,6 +931,35 @@ class SearchController extends Controller
                 $customer->noc_status       = '0';
                 $customer->active_status    = '0';
                 $customer->terminate_status = '1';
+                $customer->save();
+            }
+
+            $terminate->save();
+        } catch (Exception $e) {
+            DB::rollback();
+            return response('failed', 400);
+        }
+
+        return response('success', 200);
+    }
+
+    // confirm the terminate customer
+    public function cancelTerminate(Request $request)
+    {
+
+        try {
+
+            $terminate = Terminate::findorfail($request->id);
+
+            if (Auth::user()->role == 'sales') {
+                $terminate->sales_cancel = date('Y/m/d H:i:s');
+            } else if (Auth::user()->role == 'finance') {
+                $terminate->finance_cancel = date('Y/m/d H:i:s');
+            } else if (Auth::user()->role == 'noc') {
+                $terminate->noc_cancel = date('Y/m/d H:i:s');
+                $terminate->status = 'cancel';
+                $customer = Customer::find($terminate->cu_id);
+                $customer->terminate_status = '0';
                 $customer->save();
             }
 
@@ -1746,7 +1815,8 @@ class SearchController extends Controller
 
         $customers = $customers->whereNull('deleted_at')
             ->whereHas('terminate', function ($query) {
-                $query->where('status', '=', 'terminate');
+                $query->where('status', '!=', 'cancel')
+                    ->whereNull('noc_cancel');
             })
             ->whereIn('customers.branch_id', hasSectionPermissionForBranch(Auth::user(), 'terminate', 'read'))
             ->paginate(15);
@@ -1787,6 +1857,8 @@ class SearchController extends Controller
         }
 
         $customers = $customers
+            ->where('status', '!=', 'cancel')
+            ->whereNull('noc_cancel')
             ->whereIn('customers_recontract_info.branch_id', hasSectionPermissionForBranch(Auth::user(), 'recontract', 'read'))
             ->paginate(15);
         $total = $customers->total();
