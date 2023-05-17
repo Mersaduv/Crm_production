@@ -117,8 +117,8 @@
                                             </tr>
                                             <tr>
                                                 <th>Provider</th>
-                                                @if ($customer->provider)
-                                                <td>{{ $customer->provider->name }}</td>
+                                                @if ($customer->provincial->provider)
+                                                <td>{{ $customer->provincial->provider->name }}</td>
                                                 @else
                                                 <td>NA</td>
                                                 @endif
@@ -337,7 +337,7 @@
                                                 <td>
                                                     {{ marketer($clone->marketer_id) }}
                                                     =>
-                                                    {{ $customer->marketer->name }}
+                                                    {{ $customer->provincial->marketer->name }}
                                                 </td>
                                             </tr>
                                             @endif
@@ -352,13 +352,13 @@
                                                 </td>
                                             </tr>
                                             @endif
-                                            @if($customer->provider != $clone->provider)
+                                            @if($customer->provincial->provider->name != $clone->provider->name)
                                             <tr>
                                                 <th>Reseller Percentage</th>
                                                 <td>
-                                                    {{ $clone->provider }}
+                                                    {{ $clone->provider->name}}
                                                     =>
-                                                    {{ $customer->provider }}
+                                                    {{ $customer->provincial->provider->name }}
                                                 </td>
                                             </tr>
                                             @endif
