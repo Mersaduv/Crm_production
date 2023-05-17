@@ -19,19 +19,20 @@
         </button>
 
         @can('update',ProvincialAmendmentFullyQualifiedNameSpace())
-        && (!$customer->finance_confirmation && !$customer->noc_confirmation) )
+        @if(!$customer->finance_confirmation && !$customer->noc_confirmation) )
         <button class="btn btn-primary w-100 mb-1" type="button">
             <a href="{{ route('pr.amedment.edit',$customer->id) }}">
                 Edit
             </a>
         </button>
         @endif
+        @endcan
 
         @can('delete',ProvincialAmendmentFullyQualifiedNameSpace())
         <button class="btn btn-danger w-100 mb-1" type="button" data-toggle="modal" data-target="#delete">
             Delete
         </button>
-        @endif
+        @endcan
 
     </div> <!-- /card-body -->
 
