@@ -376,13 +376,13 @@
                                                 </td>
                                             </tr>
                                             @endif
-                                            @if ($customer->provincial->provider->name != $clone->provider)
+                                            @if($customer->provincial->provider->name != $clone->provider->name)
                                             <tr>
                                                 <th>Reseller Percentage</th>
                                                 <td>
-                                                    {{ $clone->provider }}
+                                                    {{ $clone->provider->name }}
                                                     =>
-                                                    {{ $customer->provincial->provider }}
+                                                    {{ $customer->provincial->provider->name }}
                                                 </td>
                                             </tr>
                                             @endif
