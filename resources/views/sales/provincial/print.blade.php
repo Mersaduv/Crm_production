@@ -184,232 +184,234 @@
                             </div>
                             <div class="page-header-box">
                                 <h3>
-                                    <span> شرکت خدمات تکنالوژی و انترنتی آریابُد </span>
+                                    <span> شرکت خدمات تکنالوژی آریابُد </span>
                                 </h3>
                                 <h3> قرارداد ارائه خدمات انترنتی </h3>
+                                <h6 style="font-size: 11px">نماینده رسمی شرکت اتصالات</h6 </div>
                             </div>
+                            <div class="clearfix"></div>
                         </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <!-- end page title -->
+                        <!-- end page title -->
 
-                    <div class="page-content-box">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <table class="table" id="my-table">
-                                    <tr>
-                                        <th>آی دی</th>
-                                        <td>{{ $customer->customer_id }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>نام مشترک</th>
-                                        <td>{{ $customer->full_name_persian ? $customer->full_name_persian :
-                                            $customer->full_name }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>شماره تذکره / پاسپورت</th>
-                                        <td>
-                                            @if( $customer->identity_num )
-                                            {{ $customer->identity_num }}
-                                            @else
-                                            ---
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>شخص ارتباطی</th>
-                                        <td>{{ $customer->poc_persian ? $customer->poc_persian : $customer->poc }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>شماره تماس</th>
-                                        <td>{{ $customer->phone1 }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>شماره تماس</th>
-                                        <td>{{ $customer->phone2 }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>تاریخ قرار داد</th>
-                                        <td>
-                                            {{ Carbon\Carbon::parse($customer->installation_date)->format('Y-m-d') }}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>تاریخ فعال سازی</th>
-                                        <td>
-                                            @if($customer->PrNocInfo()->exists())
-                                            {{
-                                            Carbon\Carbon::parse($customer->PrNocInfo->activation_date)->format('Y-m-d')
-                                            }}
-                                            @else
-
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>بسته اینترنتی</th>
-                                        <td style="direction: ltr;">
-                                            @if($customer->package)
-                                            {{ $customer->package->name }}
-                                            @else
-                                            ---
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    <tr class="price">
-                                        <th>قیمت بسته</th>
-                                        <td>
-                                            <span>{{ $customer->package_price }}</span>
-                                            <span>{{ $customer->package_price_currency }}</span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>نوعیت دستگاه گیرنده</th>
-                                        <td>---</td>
-                                    </tr>
-                                    <tr>
-                                        <th>قیمت دستگاه گیرنده</th>
-                                        <td>---</td>
-                                    </tr>
-                                    <tr>
-                                        <th>نوعیت دستگاه فرستنده</th>
-                                        <td>---</td>
-                                    </tr>
-                                    <tr>
-                                        <th>قیمت دستگاه گیرنده</th>
-                                        <td>---</td>
-                                    </tr>
-                                    <tr class="price">
-                                        <th>هزینه نصب و راه اندازی</th>
-                                        <td>
-                                            @if($customer->Installation_cost)
-                                            <span>{{ $customer->Installation_cost }}</span>
-                                            <span>{{ $customer->Installation_cost_currency }}</span>
-                                            @else
-                                            ---
-                                            @endif
-                                        </td>
-                                    </tr>
-                                </table> <!-- /table -->
-                            </div> <!-- /col-6 -->
-                            <div class="col-sm-6">
-                                <table class="table" id="my-table">
-                                    <tr>
-                                        <th>ای پی پابلیک</th>
-                                        <td>
-                                            @if($customer->public_ip)
-                                            {{ $customer->public_ip }}
-                                            @else
-                                            ---
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    <tr class="price">
-                                        <th>هزینه ای پی پابلیک</th>
-                                        <td>
-                                            @if($customer->ip_price)
-                                            <span>{{ $customer->ip_price }}</span>
-                                            <span>{{ $customer->ip_price_currency }}</span>
-                                            @else
-                                            ---
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="2" style="text-align:center">وضعیت دستگاه امانتی</th>
-                                    </tr>
-                                    <tr>
-                                        <th>مک آدرس دستگاه گیرنده</th>
-                                        <td> --- </td>
-                                    </tr>
-                                    <tr>
-                                        <th>هزینه دستگاه امانتی</th>
-                                        <td> --- </td>
-                                    </tr>
-                                    <tr class="price">
-                                        <th>هزینه متفرقه</th>
-                                        <td>
-                                            @if($customer->additional_fee)
-                                            <span>{{ $customer->additional_fee }}</span>
-                                            <span>{{ $customer->additional_fee_currency }}</span>
-                                            @else
-                                            ---
-                                            @endif
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>تخفیف</th>
-                                        <td> --- </td>
-                                    </tr>
-                                    <tr>
-                                        <th>قیمت کلی</th>
-                                        <td class="total"> </td>
-                                    </tr>
-                                    <tr>
-                                        <th>مسوول فروش</th>
-                                        <td> </td>
-                                    </tr>
-                                    <tr>
-                                        <th colspan="2">مهر و امضا مدیریت فروش</th>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" style="border: unset;">
-                                            <textarea></textarea>
-                                        </td>
-                                    </tr>
-                                </table> <!-- /table -->
-                            </div> <!-- /col-6 -->
-                            <div class="col-sm-12">
-                                <table class="table">
-                                    <tr>
-                                        <th style="width: 22.4%;">آدرس</th>
-                                        <td style=" text-align: right;">{{ $customer->address }}</td>
-                                    </tr>
-                                </table>
-                            </div> <!-- /col-12 -->
-
-                            <div class="col-sm-12">
-                                <table class="table sign_table">
-                                    <thead>
+                        <div class="page-content-box">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <table class="table" id="my-table">
                                         <tr>
-                                            <th>
-                                                امضاء و نشان شصت مشتری
-                                            </th>
+                                            <th>آی دی</th>
+                                            <td>{{ $customer->customer_id }}</td>
                                         </tr>
-                                    </thead>
-                                    <tbody>
                                         <tr>
-                                            <td></td>
+                                            <th>نام مشترک</th>
+                                            <td>{{ $customer->full_name_persian ? $customer->full_name_persian :
+                                                $customer->full_name }}</td>
                                         </tr>
-                                    </tbody>
-                                </table>
-                            </div> <!-- /col-12 -->
+                                        <tr>
+                                            <th>شماره تذکره / پاسپورت</th>
+                                            <td>
+                                                @if( $customer->identity_num )
+                                                {{ $customer->identity_num }}
+                                                @else
+                                                ---
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>شخص ارتباطی</th>
+                                            <td>{{ $customer->poc_persian ? $customer->poc_persian : $customer->poc }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>شماره تماس</th>
+                                            <td>{{ $customer->phone1 }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>شماره تماس</th>
+                                            <td>{{ $customer->phone2 }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>تاریخ قرار داد</th>
+                                            <td>
+                                                {{ Carbon\Carbon::parse($customer->installation_date)->format('Y-m-d')
+                                                }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>تاریخ فعال سازی</th>
+                                            <td>
+                                                @if($customer->PrNocInfo()->exists())
+                                                {{
+                                                Carbon\Carbon::parse($customer->PrNocInfo->activation_date)->format('Y-m-d')
+                                                }}
+                                                @else
 
-                            <div class="col-sm-12 custom_footer">
-                                <img src="{{ asset('/public/assets/images/footer.jpg') }}">
-                            </div> <!-- /col-sm-12 -->
-                        </div> <!-- /row -->
-                        <div class="clearfix"></div>
-                    </div> <!-- /end of page content -->
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>بسته اینترنتی</th>
+                                            <td style="direction: ltr;">
+                                                @if($customer->package)
+                                                {{ $customer->package->name }}
+                                                @else
+                                                ---
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr class="price">
+                                            <th>قیمت بسته</th>
+                                            <td>
+                                                <span>{{ $customer->package_price }}</span>
+                                                <span>{{ $customer->package_price_currency }}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>نوعیت دستگاه گیرنده</th>
+                                            <td>---</td>
+                                        </tr>
+                                        <tr>
+                                            <th>قیمت دستگاه گیرنده</th>
+                                            <td>---</td>
+                                        </tr>
+                                        <tr>
+                                            <th>نوعیت دستگاه فرستنده</th>
+                                            <td>---</td>
+                                        </tr>
+                                        <tr>
+                                            <th>قیمت دستگاه گیرنده</th>
+                                            <td>---</td>
+                                        </tr>
+                                        <tr class="price">
+                                            <th>هزینه نصب و راه اندازی</th>
+                                            <td>
+                                                @if($customer->Installation_cost)
+                                                <span>{{ $customer->Installation_cost }}</span>
+                                                <span>{{ $customer->Installation_cost_currency }}</span>
+                                                @else
+                                                ---
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    </table> <!-- /table -->
+                                </div> <!-- /col-6 -->
+                                <div class="col-sm-6">
+                                    <table class="table" id="my-table">
+                                        <tr>
+                                            <th>ای پی پابلیک</th>
+                                            <td>
+                                                @if($customer->public_ip)
+                                                {{ $customer->public_ip }}
+                                                @else
+                                                ---
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr class="price">
+                                            <th>هزینه ای پی پابلیک</th>
+                                            <td>
+                                                @if($customer->ip_price)
+                                                <span>{{ $customer->ip_price }}</span>
+                                                <span>{{ $customer->ip_price_currency }}</span>
+                                                @else
+                                                ---
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2" style="text-align:center">وضعیت دستگاه امانتی</th>
+                                        </tr>
+                                        <tr>
+                                            <th>مک آدرس دستگاه گیرنده</th>
+                                            <td> --- </td>
+                                        </tr>
+                                        <tr>
+                                            <th>هزینه دستگاه امانتی</th>
+                                            <td> --- </td>
+                                        </tr>
+                                        <tr class="price">
+                                            <th>هزینه متفرقه</th>
+                                            <td>
+                                                @if($customer->additional_fee)
+                                                <span>{{ $customer->additional_fee }}</span>
+                                                <span>{{ $customer->additional_fee_currency }}</span>
+                                                @else
+                                                ---
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>تخفیف</th>
+                                            <td> --- </td>
+                                        </tr>
+                                        <tr>
+                                            <th>قیمت کلی</th>
+                                            <td class="total"> </td>
+                                        </tr>
+                                        <tr>
+                                            <th>مسوول فروش</th>
+                                            <td> </td>
+                                        </tr>
+                                        <tr>
+                                            <th colspan="2">مهر و امضا مدیریت فروش</th>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" style="border: unset;">
+                                                <textarea></textarea>
+                                            </td>
+                                        </tr>
+                                    </table> <!-- /table -->
+                                </div> <!-- /col-6 -->
+                                <div class="col-sm-12">
+                                    <table class="table">
+                                        <tr>
+                                            <th style="width: 22.4%;">آدرس</th>
+                                            <td style=" text-align: right;">{{ $customer->address }}</td>
+                                        </tr>
+                                    </table>
+                                </div> <!-- /col-12 -->
 
-                </div><!-- container -->
+                                <div class="col-sm-12">
+                                    <table class="table sign_table">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    امضاء و نشان شصت مشتری
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div> <!-- /col-12 -->
 
-            </div> <!-- Page content Wrapper -->
-        </div>
-        <!-- END wrapper -->
+                                <div class="col-sm-12 custom_footer">
+                                    <img src="{{ asset('/public/assets/images/footer.jpg') }}">
+                                </div> <!-- /col-sm-12 -->
+                            </div> <!-- /row -->
+                            <div class="clearfix"></div>
+                        </div> <!-- /end of page content -->
 
-        <script src="{{ asset('/public/assets/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('/public/assets/js/popper.min.js') }}"></script>
-        <script src="{{ asset('/public/assets/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('/public/assets/js/modernizr.min.js') }}"></script>
-        <script src="{{ asset('/public/assets/js/detect.js') }}"></script>
-        <script src="{{ asset('/public/assets/js/fastclick.js') }}"></script>
-        <script src="{{ asset('/public/assets/js/jquery.blockUI.js') }}"></script>
-        <script src="{{ asset('/public/assets/js/waves.js') }}"></script>
-        <script src="{{ asset('/public/assets/js/jquery.nicescroll.js') }}"></script>
-        <script src="{{ asset('/public/assets/js/app.js') }}"></script>
-        <script type="text/javascript">
-            jQuery(document).ready(function(){
+                    </div><!-- container -->
+
+                </div> <!-- Page content Wrapper -->
+            </div>
+            <!-- END wrapper -->
+
+            <script src="{{ asset('/public/assets/js/jquery.min.js') }}"></script>
+            <script src="{{ asset('/public/assets/js/popper.min.js') }}"></script>
+            <script src="{{ asset('/public/assets/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('/public/assets/js/modernizr.min.js') }}"></script>
+            <script src="{{ asset('/public/assets/js/detect.js') }}"></script>
+            <script src="{{ asset('/public/assets/js/fastclick.js') }}"></script>
+            <script src="{{ asset('/public/assets/js/jquery.blockUI.js') }}"></script>
+            <script src="{{ asset('/public/assets/js/waves.js') }}"></script>
+            <script src="{{ asset('/public/assets/js/jquery.nicescroll.js') }}"></script>
+            <script src="{{ asset('/public/assets/js/app.js') }}"></script>
+            <script type="text/javascript">
+                jQuery(document).ready(function(){
 
 			// get total numbers
 			var dollar = 0;
@@ -456,7 +458,7 @@
 			  window.location.href = "{{ route('customers.show',$customer->id)}}";
 			}
 		});
-        </script>
+            </script>
     </body>
 
 </html>
