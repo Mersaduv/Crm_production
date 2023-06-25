@@ -97,7 +97,7 @@
                 margin: 0px;
             }
 
-            .page-header-box h3:first-child span {
+             .page-header-box h6 > span {
                 display: inline-block;
                 border-bottom: 2px solid #00665d;
                 padding-bottom: 15px;
@@ -126,7 +126,7 @@
                     text-align: center;
                 }
 
-                .page-header-box h3:first-child span {
+                .page-header-box h6 > span {
                     display: inline-block;
                     border-bottom: 2px solid #00665d;
                     padding-bottom: 15px;
@@ -160,7 +160,7 @@
                     text-align: center;
                 }
 
-                .page-header-box h3:first-child span {
+                .page-header-box h6 > span {
                     display: inline-block;
                     border-bottom: 2px solid #00665d;
                     padding-bottom: 15px;
@@ -186,8 +186,13 @@
                                 <h3>
                                     <span> شرکت خدمات تکنالوژی آریابُد </span>
                                 </h3>
-                                <h3> قرارداد ارائه خدمات انترنتی </h3>
-                                <h6 style="font-size: 11px">نماینده رسمی شرکت اتصالات</h6 </div>
+                                <h6>
+<span>
+                                 نماینده رسمی فروش اینترنت شرکت اتصالات 
+                                 </span>
+
+                             </h6>
+                                <h6 style="font-size: 15px">قرارداد ارائه خدمات انترنتی</h6> </div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
