@@ -89,7 +89,7 @@
             .page-header-box {
                 text-align: center;
                 margin-top: -70px;
-                margin-bottom: 35px;
+                margin-bottom: 30px;
             }
 
             .page-header-box h3 {
