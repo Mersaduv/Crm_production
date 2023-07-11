@@ -146,7 +146,7 @@ class FinanceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->authorize('uppdate', Customer::class);
+        $this->authorize('update', Customer::class);
 
         try {
             DB::beginTransaction();
