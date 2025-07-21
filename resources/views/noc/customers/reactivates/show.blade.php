@@ -339,7 +339,8 @@
                                             <tr>
                                                 <th>Address</th>
                                                 <td>
-                                                    {{ $customer->suspend->branch->name }}
+                                                    {{-- {{ $customer->suspend->branch->name }} --}}
+                                                    {{$customer->suspend->branch}}
                                                     =>
                                                     {{ $customer->branch->name }}
                                                 </td>

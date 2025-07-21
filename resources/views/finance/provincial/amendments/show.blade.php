@@ -331,7 +331,7 @@
                                             </tr>
                                             @endif
                                             @isset($clone->marketer_id)
-                                            @if($customer->marketer_id != $clone->marketer_id)
+                                            @if ($customer->marketer_id != $clone->marketer_id)
                                             <tr>
                                                 <th>Field Officer</th>
                                                 <td>
@@ -352,11 +352,11 @@
                                                 </td>
                                             </tr>
                                             @endif
-                                            @if($customer->provincial->provider->name != $clone->provider)
+                                            @if($customer->provincial->provider->name != $clone->provider->name)
                                             <tr>
                                                 <th>Reseller Percentage</th>
                                                 <td>
-                                                    {{ $clone->provider }}
+                                                    {{ $clone->provider->name }}
                                                     =>
                                                     {{ $customer->provincial->provider->name }}
                                                 </td>

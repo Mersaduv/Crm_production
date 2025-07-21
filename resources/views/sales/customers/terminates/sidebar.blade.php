@@ -15,8 +15,7 @@
         @can('create',RecontractFullyQualifiedNameSpace())
         @if ($customer->terminate->first()->sales_confirmation &&
         $customer->terminate->first()->noc_confirmation &&
-        $customer->terminate->first()->finance_confirmation &&
-        $recontract == null)
+        $customer->terminate->first()->finance_confirmation)
         <button class="btn btn-primary w-100 mb-1" type="button">
             <a href="{{ route('customer.contractForm', $customer->id) }}">
                 Re-Contraction
