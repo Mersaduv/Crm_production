@@ -89,11 +89,12 @@
                                                         <label for="role">User Role</label>
                                                         <select name="role" class="form-control">
                                                             <option value="">select Role</option>
-                                                            <option value="manager">manager</option>
-                                                            <option value="sales">sales</option>
-                                                            <option value="noc">noc</option>
-                                                            <option value="finance">finance</option>
-                                                            <option value="support">support</option>
+                                                            <option value="admin">Admin</option>
+                                                            <option value="manager">Manager</option>
+                                                            <option value="sales">Sales</option>
+                                                            <option value="noc">NOC</option>
+                                                            <option value="finance">Finance</option>
+                                                            <option value="support">Support</option>
                                                         </select>
                                                     </div>
                                                 </div> <!-- /col -->

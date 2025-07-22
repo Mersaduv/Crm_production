@@ -26,7 +26,7 @@
 
                     <div class="text-center">
                         <a href="index.html" class="logo logo-admin">
-                        	<img src="{{ asset('/public/assets/images/logo.png') }}" 
+                        	<img src="{{ asset('/public/assets/images/logo.png') }}"
                         		 width="150" height="auto" alt="logo">
                         </a>
                     </div>
@@ -38,20 +38,20 @@
                             @csrf
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" 
-                                           type="text" 
-                                           name="name" 
-                                           required="required" 
+                                    <input class="form-control"
+                                           type="text"
+                                           name="name"
+                                           required="required"
                                            placeholder="Full Name" />
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" 
-                                           type="email" 
-                                           name="email" 
-                                           required="required" 
+                                    <input class="form-control"
+                                           type="email"
+                                           name="email"
+                                           required="required"
                                            placeholder="Email" />
                                 </div>
                             </div>
@@ -60,6 +60,7 @@
                                 <div class="col-12">
                                     <select class="form-control" name="role" required="required">
                                         <option value="">Select Role:</option>
+                                        <option value="admin">Admin</option>
                                         <option value="manager">Manager</option>
                                         <option value="finance">Finance</option>
                                         <option value="noc">NOC</option>
@@ -71,10 +72,10 @@
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" 
+                                    <input class="form-control"
                                     	   type="password"
-                                           name="password" 
-                                    	   required="required" 
+                                           name="password"
+                                    	   required="required"
                                     	   placeholder="Password" />
                                 </div>
                             </div>

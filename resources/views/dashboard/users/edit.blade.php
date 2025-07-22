@@ -59,8 +59,11 @@
                                     <label for="role" class="required">Role:</label>
                                     <select class="form-control" name="role" id="role">
                                         <option value="">Select Role:</option>
-                                        <option value="manager" {{ $user->role == 'admin' ? 'selected' : '' }}>
+                                        <option value="admin" {{ $user->role == 'admin' ? 'selected' : '' }}>
                                             Admin
+                                        </option>
+                                        <option value="manager" {{ $user->role == 'manager' ? 'selected' : '' }}>
+                                            Manager
                                         </option>
                                         <option value="finance" {{ $user->role == 'finance' ? 'selected' : '' }}>
                                             Finance
